@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sorrel — Hear copied text in your Mac's System Voice</title>
+  <meta name="description" content="Copy text anywhere on Mac, press Option-Command-V, and Sorrel cleans the clutter before reading it aloud in your Mac's selected System Voice." />
+  <meta name="color-scheme" content="light dark" />
+  <!-- Inline SVG favicon: a small speech/sound-wave glyph (no external file). -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23c47e3c'/%3E%3Cg fill='none' stroke='white' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M11 13v6'/%3E%3Cpath d='M16 9v14'/%3E%3Cpath d='M21 12v8'/%3E%3C/g%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="hero">
+    <nav class="topbar" aria-label="Primary">
+      <span class="wordmark">Sorrel</span>
+      <a class="topbar-link" href="https://gist.github.com/CodeMonkeyDonkey/fe27798dce836ddfe4295ffdc6417165">Privacy</a>
+    </nav>
+
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <h1>Sorrel</h1>
+        <p class="subtitle">Hear copied text in your Mac's System Voice.</p>
+        <p class="oneliner">Copy text anywhere on Mac, press Option-Command-V, and Sorrel cleans the clutter before reading it aloud.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://github.com/CodeMonkeyDonkey/sorrel-app/releases/latest/download/Sorrel.dmg">
+            Download for Mac
+          </a>
+          <a class="btn btn-secondary" href="https://gist.github.com/CodeMonkeyDonkey/fe27798dce836ddfe4295ffdc6417165">
+            Read privacy notice
+          </a>
+        </div>
+        <p class="hero-note">macOS 14 Sonoma or later · signed &amp; notarized</p>
+      </div>
+
+      <!-- Self-contained CSS mockup of the workflow. Replace with a real
+           screenshot (mac-hero-light.png / mac-hero-dark.png) when available. -->
+      <div class="hero-mock" role="img"
+           aria-label="A Mac window with copied article text, the Option-Command-V shortcut, and Sorrel reading the cleaned text aloud.">
+        <div class="mock-window mock-source">
+          <span class="mock-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <p class="mock-source-text">## Heading\n\nSome **copied** text with [a link](url),<br />footnotes¹ and `code` clutter…</p>
+        </div>
+        <div class="mock-key" aria-hidden="true"><kbd>⌥</kbd><kbd>⌘</kbd><kbd>V</kbd></div>
+        <div class="mock-window mock-sorrel">
+          <span class="mock-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <p class="mock-clean-text">Some copied text with a link, footnotes and code clutter…</p>
+          <div class="mock-playing" aria-hidden="true">
+            <span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span>
+            <span class="mock-playing-label">Speaking · System Voice</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Workflow band -->
+    <section class="band" aria-labelledby="workflow-title">
+      <h2 id="workflow-title" class="visually-hidden">How it works</h2>
+      <ul class="workflow-grid">
+        <li class="workflow-card">
+          <h3>Copy Anywhere</h3>
+          <p>Grab text from a browser, PDF, email, ChatGPT answer, document, or editor. Sorrel reads the clipboard only when you ask it to.</p>
+        </li>
+        <li class="workflow-card">
+          <h3>Press Option-Command-V</h3>
+          <p>Use the global hotkey from any Mac app. Sorrel opens, cleans the text, and starts playback.</p>
+        </li>
+        <li class="workflow-card">
+          <h3>Hear System Voice</h3>
+          <p>Sorrel uses your Mac's selected System Voice. Choose the voice in System Settings &gt; Accessibility &gt; Spoken Content.</p>
+        </li>
+        <li class="workflow-card">
+          <h3>Skip The Noise</h3>
+          <p>Cleanup presets strip links, markdown tables, code fences, citations, footnotes, and spacing noise before speech begins.</p>
+        </li>
+      </ul>
+    </section>
+
+    <!-- System Voice explanation -->
+    <section class="prose" aria-labelledby="voice-title">
+      <h2 id="voice-title">Your Mac's voice, not a private Siri API</h2>
+      <p>Sorrel uses macOS system speech. If you choose a Siri voice in Spoken Content and macOS makes it available to system speech, Sorrel follows that setting. iPhone and iPad apps cannot use Siri voices through Apple's public AVSpeechSynthesizer API.</p>
+    </section>
+
+    <!-- Privacy flow -->
+    <section class="prose" aria-labelledby="privacy-title">
+      <h2 id="privacy-title">Local first. Cloud only if you choose it.</h2>
+      <ol class="privacy-flow">
+        <li><strong>Copy</strong> — You copy text in another app or paste text into Sorrel.</li>
+        <li><strong>Clean</strong> — Local rules remove enabled noise patterns.</li>
+        <li><strong>Speak Locally</strong> — Mac System Voice generates speech on the Mac.</li>
+        <li><strong>Save Locally</strong> — Optional history and audio cache stay on device.</li>
+        <li><strong>Advanced Cloud</strong> — Only if you choose a cloud voice, filtered text is sent over HTTPS to that provider using your key.</li>
+      </ol>
+    </section>
+
+    <!-- Compatibility -->
+    <section class="prose" aria-labelledby="compat-title">
+      <h2 id="compat-title">Compatibility</h2>
+      <ul class="plain-list">
+        <li>Mac running macOS 14 Sonoma or later.</li>
+        <li>iPhone/iPad companion is deferred and does not support Siri/System Voice.</li>
+      </ul>
+    </section>
+
+    <!-- FAQ -->
+    <section class="prose" aria-labelledby="faq-title">
+      <h2 id="faq-title">FAQ</h2>
+      <details>
+        <summary>Does this use Siri?</summary>
+        <p>Sorrel uses your Mac's selected System Voice. If that System Voice is a Siri voice and macOS exposes it to system speech, Sorrel follows that setting. It does not use a private Siri API.</p>
+      </details>
+      <details>
+        <summary>Can the iPhone app do this?</summary>
+        <p>No. Apple does not expose Siri voices to third-party iOS apps through AVSpeechSynthesizer. iOS can use Apple Enhanced/Premium voices, Personal Voice, or optional cloud voices.</p>
+      </details>
+      <details>
+        <summary>Does Sorrel monitor my clipboard?</summary>
+        <p>No. It reads the clipboard only when you paste, press the hotkey, use a command, or invoke a shortcut.</p>
+      </details>
+      <details>
+        <summary>Does text leave my Mac?</summary>
+        <p>Not for System Voice playback. Optional cloud voices send filtered text to the selected provider over HTTPS using your key.</p>
+      </details>
+      <details>
+        <summary>Do I need an API key?</summary>
+        <p>No. API keys are only for optional advanced cloud voices.</p>
+      </details>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-links">
+      <a href="https://gist.github.com/CodeMonkeyDonkey/fe27798dce836ddfe4295ffdc6417165">Privacy</a>
+      <span aria-hidden="true">·</span>
+      <a href="mailto:me@julyskyfly.com">Support</a>
+      <span aria-hidden="true">·</span>
+      <a href="mailto:me@julyskyfly.com">Email</a>
+    </p>
+    <p class="copyright">© 2026 Hye-Yeon Jeon. Built as a solo-dev side project.</p>
+  </footer>
+</body>
+</html>
