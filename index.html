@@ -1,158 +1,221 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sorrel — Hear copied text in your Mac's System Voice</title>
-  <meta name="description" content="Copy text anywhere on Mac, press Option-Command-V, and Sorrel cleans the clutter before reading it aloud in your Mac's selected System Voice." />
-  <meta name="color-scheme" content="light dark" />
+  <meta name="description" content="Copy text anywhere on Mac, press Option-Command-V, and Sorrel strips the clutter before reading it aloud in your Mac's own voice. Free for 14 days, then $9.99 once — no subscription, fully private." />
+  <meta name="color-scheme" content="light" />
   <link rel="canonical" href="https://sorrelreader.com/" />
-  <!-- Open Graph / social share cards -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://sorrelreader.com/" />
   <meta property="og:title" content="Sorrel — Hear copied text in your Mac's System Voice" />
-  <meta property="og:description" content="Copy text anywhere on Mac, press Option-Command-V, and Sorrel cleans the clutter before reading it aloud. Free for 14 days, then $9.99 once — no subscription." />
+  <meta property="og:description" content="Copy any text on Mac, press ⌥⌘V, and Sorrel reads it aloud — clutter stripped. Free for 14 days, then $9.99 once, no subscription." />
   <meta property="og:image" content="https://sorrelreader.com/og-image.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Sorrel — Hear copied text in your Mac's System Voice" />
   <meta name="twitter:description" content="Press ⌥⌘V and Sorrel reads any copied text aloud — clutter stripped. $9.99 once, no subscription, fully private." />
   <meta name="twitter:image" content="https://sorrelreader.com/og-image.png" />
-  <!-- Inline SVG favicon: a small speech/sound-wave glyph (no external file). -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23c47e3c'/%3E%3Cg fill='none' stroke='white' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M11 13v6'/%3E%3Cpath d='M16 9v14'/%3E%3Cpath d='M21 12v8'/%3E%3C/g%3E%3C/svg%3E" />
-  <link rel="stylesheet" href="styles.css" />
-</head>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23b5651f'/%3E%3Cg fill='none' stroke='white' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M11 13v6'/%3E%3Cpath d='M16 9v14'/%3E%3Cpath d='M21 12v8'/%3E%3C/g%3E%3C/svg%3E" />
+<style>
+  :root{
+    --bg:#fbf9f4;--surface:#ffffff;--surface-2:#f4efe5;--ink:#1d1813;--muted:#6b6256;
+    --border:#e7e0d2;--accent:#b5651f;--accent-2:#d68a3e;--accent-ink:#fff;
+    --font:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;--maxw:1120px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:var(--font);color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;line-height:1.6;}
+  a{color:var(--accent);}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
+  .skip{position:absolute;left:-999px;}.skip:focus{left:8px;top:8px;background:var(--accent);color:#fff;padding:10px 14px;border-radius:8px;z-index:20;text-decoration:none;}
+  :focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:4px;}
+
+  nav{display:flex;align-items:center;justify-content:space-between;padding:22px 0;}
+  .brand{display:flex;align-items:center;gap:11px;font-weight:700;font-size:19px;letter-spacing:-.02em;color:var(--ink);text-decoration:none;}
+  .brand .ico{width:30px;height:30px;border-radius:8px;background:linear-gradient(160deg,var(--accent-2),var(--accent));display:flex;align-items:center;justify-content:center;}
+  .brand .ico span{display:flex;gap:2.5px;align-items:center;}
+  .brand .ico i{width:2.6px;border-radius:2px;background:#fff;display:block;}
+  .brand .ico i:nth-child(1){height:7px}.brand .ico i:nth-child(2){height:13px}.brand .ico i:nth-child(3){height:17px}.brand .ico i:nth-child(4){height:11px}.brand .ico i:nth-child(5){height:7px}
+  .nav-links{display:flex;align-items:center;gap:24px;font-size:15px;}
+  .nav-links a{color:var(--muted);text-decoration:none;}.nav-links a:hover{color:var(--ink);}
+
+  .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--border);
+        background:radial-gradient(1100px 520px at 78% -8%,#f6ead9 0%,rgba(246,234,217,0) 60%),linear-gradient(180deg,#fdfbf7,var(--bg));}
+  .hero-grid{display:grid;grid-template-columns:1.02fr 1fr;gap:56px;align-items:center;padding:60px 0 78px;}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:600;color:var(--accent);
+           background:rgba(181,101,31,.09);border:1px solid rgba(181,101,31,.18);padding:6px 13px;border-radius:999px;margin-bottom:22px;}
+  h1{font-size:clamp(42px,5.2vw,66px);line-height:1.05;letter-spacing:-.035em;font-weight:800;margin-bottom:20px;}
+  h1 .grad{background:linear-gradient(120deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .lede{font-size:21px;color:var(--muted);max-width:31ch;margin-bottom:30px;}
+  .lede kbd{font-family:var(--mono);font-size:15px;font-weight:700;color:var(--ink);background:#fff;border:1px solid var(--border);border-bottom-width:2px;border-radius:7px;padding:2px 8px;}
+  .cta{display:flex;gap:13px;align-items:center;flex-wrap:wrap;}
+  .btn{font-weight:650;font-size:16px;text-decoration:none;padding:14px 24px;border-radius:13px;border:1px solid transparent;display:inline-flex;align-items:center;gap:9px;transition:transform .05s ease;}
+  .btn:active{transform:translateY(1px);}
+  .btn-primary{background:linear-gradient(160deg,var(--accent-2),var(--accent));color:var(--accent-ink);box-shadow:0 10px 26px rgba(181,101,31,.30);}
+  .btn-ghost{background:#fff;color:var(--ink);border-color:var(--border);}
+  .trust{margin-top:24px;font-size:14px;color:var(--muted);display:flex;gap:9px 20px;flex-wrap:wrap;}
+  .ti{display:inline-flex;align-items:center;gap:6px;white-space:nowrap;}
+  .ti b{color:var(--accent);font-weight:800;font-size:13px;}
+
+  .app{background:var(--surface);border:1px solid var(--border);border-radius:18px;box-shadow:0 2px 6px rgba(31,24,15,.05),0 40px 80px -20px rgba(31,24,15,.30);overflow:hidden;}
+  .titlebar{display:flex;align-items:center;gap:8px;padding:13px 16px;background:linear-gradient(180deg,#fff,#fbf8f2);border-bottom:1px solid var(--border);}
+  .tl{width:12px;height:12px;border-radius:50%;}.tl.r{background:#ff5f57}.tl.y{background:#febc2e}.tl.g{background:#28c840}
+  .titlebar .t{margin-left:8px;font-size:13px;color:var(--muted);font-weight:600;}
+  .app-body{padding:22px;}
+  .src{font-family:var(--mono);font-size:12.5px;color:#a99f8d;background:var(--surface-2);border:1px solid var(--border);border-radius:11px;padding:13px 15px;line-height:1.55;}
+  .flowrow{display:flex;align-items:center;justify-content:center;gap:10px;margin:15px 0;}
+  .flowrow kbd{font-family:var(--mono);font-size:13px;font-weight:700;background:#fff;border:1px solid var(--border);border-bottom-width:2px;border-radius:7px;padding:3px 9px;}
+  .flowrow .arr{color:var(--accent);font-size:18px;}
+  .clean{background:#fff;border:1.5px solid color-mix(in srgb,var(--accent) 32%,var(--border));border-radius:13px;padding:17px;box-shadow:0 8px 22px rgba(181,101,31,.10);}
+  .clean p{font-size:15.5px;color:var(--ink);margin-bottom:15px;}
+  .player{display:flex;align-items:center;gap:11px;}
+  .play{width:34px;height:34px;border-radius:50%;background:linear-gradient(160deg,var(--accent-2),var(--accent));display:flex;align-items:center;justify-content:center;flex:0 0 auto;}
+  .play::before{content:"";border-left:11px solid #fff;border-top:7px solid transparent;border-bottom:7px solid transparent;margin-left:3px;}
+  .wave{display:flex;align-items:center;gap:3px;height:26px;flex:1;}
+  .wave i{width:3px;border-radius:2px;background:var(--accent);display:block;}.wave i:nth-child(odd){background:var(--accent-2);}
+  .plabel{font-size:13px;color:var(--muted);font-weight:600;white-space:nowrap;}
+
+  .section{padding:74px 0;}
+  .section.alt{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+  .kicker{font-size:14px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px;}
+  .section h2{font-size:clamp(28px,3.6vw,40px);letter-spacing:-.025em;font-weight:800;max-width:20ch;margin-bottom:14px;}
+  .section .sub{font-size:18px;color:var(--muted);max-width:56ch;}
+  .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:44px;}
+  .card{background:var(--bg);border:1px solid var(--border);border-radius:16px;padding:24px;}
+  .section.alt .card{background:var(--surface-2);}
+  .card .cico{width:40px;height:40px;border-radius:11px;background:rgba(181,101,31,.10);display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:15px;}
+  .card h3{font-size:17px;letter-spacing:-.01em;margin-bottom:7px;}
+  .card p{font-size:14.5px;color:var(--muted);}
+
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+  .priv ol{list-style:none;counter-reset:s;}
+  .priv li{counter-increment:s;display:flex;gap:15px;padding:13px 0;border-bottom:1px solid var(--border);}
+  .priv li:last-child{border-bottom:0;}
+  .priv li::before{content:counter(s);flex:0 0 auto;width:28px;height:28px;border-radius:50%;background:rgba(181,101,31,.12);color:var(--accent);font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center;}
+  .priv li b{font-weight:650;}.priv li span{color:var(--muted);font-size:15px;}
+
+  .narrow{max-width:720px;}
+  .narrow p{font-size:17px;color:var(--muted);margin-top:14px;}
+  details{border:1px solid var(--border);border-radius:12px;padding:2px 18px;margin-top:12px;background:var(--surface);}
+  summary{font-weight:650;cursor:pointer;padding:14px 0;font-size:16px;}
+  details[open] summary{border-bottom:1px solid var(--border);margin-bottom:12px;}
+  details p{color:var(--muted);font-size:15px;margin:0 0 14px;}
+
+  footer{padding:48px 0;text-align:center;border-top:1px solid var(--border);color:var(--muted);font-size:14px;}
+  footer .flinks{margin-bottom:10px;}
+  footer a{color:var(--ink);text-decoration:none;margin:0 11px;}footer a:hover{color:var(--accent);}
+
+  @media (max-width:880px){
+    .hero-grid,.two{grid-template-columns:1fr;gap:40px;}
+    .cards{grid-template-columns:repeat(2,1fr);}
+    .nav-links .hidem{display:none;}
+  }
+  @media (max-width:520px){.cards{grid-template-columns:1fr;}.cta{flex-direction:column;align-items:stretch;}.btn{justify-content:center;}}
+</style></head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-
+  <a class="skip" href="#how">Skip to content</a>
   <header class="hero">
-    <nav class="topbar" aria-label="Primary">
-      <span class="wordmark">Sorrel</span>
-      <a class="topbar-link" href="https://gist.github.com/CodeMonkeyDonkey/fe27798dce836ddfe4295ffdc6417165">Privacy</a>
-    </nav>
-
-    <div class="hero-inner">
-      <div class="hero-copy">
-        <h1>Sorrel</h1>
-        <p class="subtitle">Hear copied text in your Mac's System Voice.</p>
-        <p class="oneliner">Copy text anywhere on Mac, press Option-Command-V, and Sorrel cleans the clutter before reading it aloud.</p>
-        <div class="cta-row">
-          <a class="btn btn-primary" href="https://github.com/CodeMonkeyDonkey/sorrel-app/releases/latest/download/Sorrel.dmg">
-            Download for Mac
-          </a>
-          <a class="btn btn-secondary" href="https://gist.github.com/CodeMonkeyDonkey/fe27798dce836ddfe4295ffdc6417165">
-            Read privacy notice
-          </a>
+    <div class="wrap">
+      <nav>
+        <a class="brand" href="/"><span class="ico"><span><i></i><i></i><i></i><i></i><i></i></span></span>Sorrel</a>
+        <div class="nav-links">
+          <a class="hidem" href="https://gist.github.com/CodeMonkeyDonkey/fe27798dce836ddfe4295ffdc6417165">Privacy</a>
+          <a class="hidem" href="#faq">FAQ</a>
+          <a class="btn btn-ghost" style="padding:9px 16px" href="https://github.com/CodeMonkeyDonkey/sorrel-app/releases/latest/download/Sorrel.dmg">Download</a>
         </div>
-        <p class="hero-note"><strong>Free for 14 days, then $9.99 once</strong> — no subscription, yours forever. · macOS 14+ · signed &amp; notarized</p>
-      </div>
-
-      <!-- Self-contained CSS mockup of the workflow. Replace with a real
-           screenshot (mac-hero-light.png / mac-hero-dark.png) when available. -->
-      <div class="hero-mock" role="img"
-           aria-label="A Mac window with copied article text, the Option-Command-V shortcut, and Sorrel reading the cleaned text aloud.">
-        <div class="mock-window mock-source">
-          <span class="mock-dots" aria-hidden="true"><i></i><i></i><i></i></span>
-          <p class="mock-source-text">## Heading\n\nSome **copied** text with [a link](url),<br />footnotes¹ and `code` clutter…</p>
+      </nav>
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow">● For macOS &nbsp;·&nbsp; signed &amp; notarized</span>
+          <h1>Hear anything on your Mac,<br>in a <span class="grad">clean voice.</span></h1>
+          <p class="lede">Copy any text, press <kbd>⌥⌘V</kbd>, and Sorrel strips the clutter and reads it aloud — in your Mac's own voice.</p>
+          <div class="cta">
+            <a class="btn btn-primary" href="https://github.com/CodeMonkeyDonkey/sorrel-app/releases/latest/download/Sorrel.dmg">↓&nbsp; Download for Mac</a>
+            <a class="btn btn-ghost" href="#how">See how it works</a>
+          </div>
+          <div class="trust"><span class="ti"><b>✓</b> 14-day free trial</span><span class="ti"><b>✓</b> $9.99 once, no subscription</span><span class="ti"><b>✓</b> 100% private</span></div>
         </div>
-        <div class="mock-key" aria-hidden="true"><kbd>⌥</kbd><kbd>⌘</kbd><kbd>V</kbd></div>
-        <div class="mock-window mock-sorrel">
-          <span class="mock-dots" aria-hidden="true"><i></i><i></i><i></i></span>
-          <p class="mock-clean-text">Some copied text with a link, footnotes and code clutter…</p>
-          <div class="mock-playing" aria-hidden="true">
-            <span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span>
-            <span class="mock-playing-label">Speaking · System Voice</span>
+        <div class="app">
+          <div class="titlebar"><span class="tl r"></span><span class="tl y"></span><span class="tl g"></span><span class="t">Sorrel</span></div>
+          <div class="app-body">
+            <div class="src">## Heading<br><br>Some **copied** text with [a link](url), footnotes¹ and `code` clutter…</div>
+            <div class="flowrow"><kbd>⌥</kbd><kbd>⌘</kbd><kbd>V</kbd><span class="arr">↓</span></div>
+            <div class="clean">
+              <p>Some copied text with a link, footnotes and code clutter…</p>
+              <div class="player">
+                <span class="play"></span>
+                <span class="wave"><i style="height:9px"></i><i style="height:18px"></i><i style="height:24px"></i><i style="height:14px"></i><i style="height:21px"></i><i style="height:11px"></i><i style="height:17px"></i><i style="height:23px"></i><i style="height:13px"></i><i style="height:8px"></i></span>
+                <span class="plabel">Speaking · System Voice</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </header>
 
-  <main id="main">
-    <!-- Workflow band -->
-    <section class="band" aria-labelledby="workflow-title">
-      <h2 id="workflow-title" class="visually-hidden">How it works</h2>
-      <ul class="workflow-grid">
-        <li class="workflow-card">
-          <h3>Copy Anywhere</h3>
-          <p>Grab text from a browser, PDF, email, ChatGPT answer, document, or editor. Sorrel reads the clipboard only when you ask it to.</p>
-        </li>
-        <li class="workflow-card">
-          <h3>Press Option-Command-V</h3>
-          <p>Use the global hotkey from any Mac app. Sorrel opens, cleans the text, and starts playback.</p>
-        </li>
-        <li class="workflow-card">
-          <h3>Hear System Voice</h3>
-          <p>Sorrel uses your Mac's selected System Voice. Choose the voice in System Settings &gt; Accessibility &gt; Spoken Content.</p>
-        </li>
-        <li class="workflow-card">
-          <h3>Skip The Noise</h3>
-          <p>Cleanup presets strip links, markdown tables, code fences, citations, footnotes, and spacing noise before speech begins.</p>
-        </li>
-      </ul>
+  <main id="how">
+    <section class="section">
+      <div class="wrap">
+        <div class="kicker">How it works</div>
+        <h2>Copy. Hotkey. Listen.</h2>
+        <p class="sub">No app to switch to, no document to open. It works anywhere you can copy text.</p>
+        <div class="cards">
+          <div class="card"><div class="cico">⌘</div><h3>Copy anywhere</h3><p>Browser, PDF, email, ChatGPT, docs — Sorrel reads your clipboard only when you ask.</p></div>
+          <div class="card"><div class="cico">⌥</div><h3>One global hotkey</h3><p>Press ⌥⌘V from any app. Sorrel opens, cleans the text, and starts playback.</p></div>
+          <div class="card"><div class="cico">🔊</div><h3>Your Mac's voice</h3><p>Uses your selected System Voice — natural, on-device, and no subscription.</p></div>
+          <div class="card"><div class="cico">✦</div><h3>Skips the noise</h3><p>Strips markdown, links, code fences, citations and footnotes before a word is spoken.</p></div>
+        </div>
+      </div>
     </section>
 
-    <!-- System Voice explanation -->
-    <section class="prose" aria-labelledby="voice-title">
-      <h2 id="voice-title">Your Mac's voice, not a private Siri API</h2>
-      <p>Sorrel uses macOS system speech. If you choose a Siri voice in Spoken Content and macOS makes it available to system speech, Sorrel follows that setting. iPhone and iPad apps cannot use Siri voices through Apple's public AVSpeechSynthesizer API.</p>
+    <section class="section alt">
+      <div class="wrap">
+        <div class="two">
+          <div>
+            <div class="kicker">Private by design</div>
+            <h2>Local first. Cloud only if you choose it.</h2>
+            <p class="sub">No analytics, no tracking, no account. Everything happens on your Mac unless you opt into a cloud voice.</p>
+          </div>
+          <div class="priv"><ol>
+            <li><div><b>Copy</b> <span>— you copy text, or paste it into Sorrel.</span></div></li>
+            <li><div><b>Clean</b> <span>— local rules strip the noise patterns you enabled.</span></div></li>
+            <li><div><b>Speak</b> <span>— your Mac's System Voice generates the audio on-device.</span></div></li>
+            <li><div><b>Stays put</b> <span>— optional history and audio cache never leave your Mac.</span></div></li>
+          </ol></div>
+        </div>
+      </div>
     </section>
 
-    <!-- Privacy flow -->
-    <section class="prose" aria-labelledby="privacy-title">
-      <h2 id="privacy-title">Local first. Cloud only if you choose it.</h2>
-      <ol class="privacy-flow">
-        <li><strong>Copy</strong> — You copy text in another app or paste text into Sorrel.</li>
-        <li><strong>Clean</strong> — Local rules remove enabled noise patterns.</li>
-        <li><strong>Speak Locally</strong> — Mac System Voice generates speech on the Mac.</li>
-        <li><strong>Save Locally</strong> — Optional history and audio cache stay on device.</li>
-        <li><strong>Advanced Cloud</strong> — Only if you choose a cloud voice, filtered text is sent over HTTPS to that provider using your key.</li>
-      </ol>
+    <section class="section">
+      <div class="wrap narrow">
+        <div class="kicker">About the voice</div>
+        <h2>Your Mac's voice — not a private Siri API.</h2>
+        <p>Sorrel uses macOS system speech. If you choose a Siri voice in System Settings &gt; Accessibility &gt; Spoken Content and macOS makes it available to system speech, Sorrel follows that setting. It never uses a private Apple API — just the voices your Mac already offers.</p>
+      </div>
     </section>
 
-    <!-- Compatibility -->
-    <section class="prose" aria-labelledby="compat-title">
-      <h2 id="compat-title">Compatibility</h2>
-      <ul class="plain-list">
-        <li>Mac running macOS 14 Sonoma or later.</li>
-        <li>iPhone/iPad companion is deferred and does not support Siri/System Voice.</li>
-      </ul>
-    </section>
-
-    <!-- FAQ -->
-    <section class="prose" aria-labelledby="faq-title">
-      <h2 id="faq-title">FAQ</h2>
-      <details>
-        <summary>Does this use Siri?</summary>
-        <p>Sorrel uses your Mac's selected System Voice. If that System Voice is a Siri voice and macOS exposes it to system speech, Sorrel follows that setting. It does not use a private Siri API.</p>
-      </details>
-      <details>
-        <summary>Can the iPhone app do this?</summary>
-        <p>No. Apple does not expose Siri voices to third-party iOS apps through AVSpeechSynthesizer. iOS can use Apple Enhanced/Premium voices, Personal Voice, or optional cloud voices.</p>
-      </details>
-      <details>
-        <summary>Does Sorrel monitor my clipboard?</summary>
-        <p>No. It reads the clipboard only when you paste, press the hotkey, use a command, or invoke a shortcut.</p>
-      </details>
-      <details>
-        <summary>Does text leave my Mac?</summary>
-        <p>Not for System Voice playback. Optional cloud voices send filtered text to the selected provider over HTTPS using your key.</p>
-      </details>
-      <details>
-        <summary>Do I need an API key?</summary>
-        <p>No. API keys are only for optional advanced cloud voices.</p>
-      </details>
+    <section class="section alt">
+      <div class="wrap narrow" id="faq">
+        <div class="kicker">FAQ</div>
+        <h2>Good questions.</h2>
+        <details><summary>Does Sorrel monitor my clipboard?</summary><p>No. It reads the clipboard only when you press the hotkey, paste, or invoke a command — never in the background.</p></details>
+        <details><summary>Does my text leave my Mac?</summary><p>Not for System Voice playback — everything stays on-device. Only if you opt into a cloud voice does the filtered text get sent to that provider over HTTPS, using your own key.</p></details>
+        <details><summary>Do I need an API key?</summary><p>No. API keys are only for the optional advanced cloud voices. The built-in System Voices need nothing.</p></details>
+        <details><summary>What does it cost?</summary><p>Free for 14 days, then $9.99 once — a one-time purchase, no subscription, yours forever on every Mac you own.</p></details>
+        <details><summary>What do I need to run it?</summary><p>A Mac running macOS 14 (Sonoma) or later. Sorrel is signed and notarized by Apple, so it opens cleanly.</p></details>
+      </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <p class="footer-links">
-      <a href="https://gist.github.com/CodeMonkeyDonkey/fe27798dce836ddfe4295ffdc6417165">Privacy</a>
-      <span aria-hidden="true">·</span>
-      <a href="mailto:me@julyskyfly.com">Support</a>
-      <span aria-hidden="true">·</span>
-      <a href="mailto:me@julyskyfly.com">Email</a>
-    </p>
-    <p class="copyright">© 2026 Hye-Yeon Jeon. Built as a solo-dev side project.</p>
+  <footer>
+    <div class="wrap">
+      <div class="flinks">
+        <a href="https://github.com/CodeMonkeyDonkey/sorrel-app/releases/latest/download/Sorrel.dmg">Download</a>
+        <a href="https://gist.github.com/CodeMonkeyDonkey/fe27798dce836ddfe4295ffdc6417165">Privacy</a>
+        <a href="mailto:me@julyskyfly.com">Support</a>
+      </div>
+      © 2026 Sorrel · Built as a solo-dev project · macOS 14+
+    </div>
   </footer>
-</body>
-</html>
+</body></html>
