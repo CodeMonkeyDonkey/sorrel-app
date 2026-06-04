@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>How to Make ChatGPT &amp; Claude Read Answers Aloud on a Mac (2026)</title>
+  <meta name="description" content="Listen to ChatGPT and Claude answers on your Mac: the built-in options, their limits, and the clipboard trick that works in the desktop apps — Sorrel, $9.99 once." />
+  <meta name="color-scheme" content="light" />
+  <link rel="canonical" href="https://sorrelreader.com/compare/read-chatgpt-claude-answers-aloud-mac/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://sorrelreader.com/compare/read-chatgpt-claude-answers-aloud-mac/" />
+  <meta property="og:title" content="How to make ChatGPT & Claude read answers aloud on a Mac" />
+  <meta property="og:description" content="The built-in options, their limits, and the one clipboard trick that reads AI answers aloud inside the desktop apps — privately." />
+  <meta property="og:image" content="https://sorrelreader.com/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Read ChatGPT & Claude answers aloud on a Mac" />
+  <meta name="twitter:description" content="How to listen to AI answers on a Mac — including inside the desktop apps, privately." />
+  <meta name="twitter:image" content="https://sorrelreader.com/og-image.png" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23b5651f'/%3E%3Cg fill='none' stroke='white' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M11 13v6'/%3E%3Cpath d='M16 9v14'/%3E%3Cpath d='M21 12v8'/%3E%3C/g%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="/assets/compare.css" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://sorrelreader.com/"},
+    {"@type":"ListItem","position":2,"name":"Compare","item":"https://sorrelreader.com/compare/"},
+    {"@type":"ListItem","position":3,"name":"Read ChatGPT & Claude answers aloud on a Mac","item":"https://sorrelreader.com/compare/read-chatgpt-claude-answers-aloud-mac/"}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"HowTo","name":"How to listen to a ChatGPT or Claude answer on a Mac with Sorrel","step":[
+    {"@type":"HowToStep","name":"Copy the answer","text":"In the Claude or ChatGPT app (or your browser), select the reply and press Command-C. Sorrel reads your clipboard, so this works even where text selection is awkward."},
+    {"@type":"HowToStep","name":"Press the Sorrel hotkey","text":"Press Option-Command-V. Sorrel strips the markdown, code and links, then reads the answer aloud in your Mac's own voice."},
+    {"@type":"HowToStep","name":"Listen, privately","text":"Playback happens on your Mac with its built-in voices. No account, no upload (a cloud voice you opt into sends text to that provider with your key). Adjust the voice and speed in Settings whenever you like."}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Can ChatGPT read its answers aloud?","acceptedAnswer":{"@type":"Answer","text":"Yes — ChatGPT has a read-aloud button for its replies. The catch: it only works inside ChatGPT, in the cloud. It won't read a Claude answer, another app, or anything else on your Mac."}},
+    {"@type":"Question","name":"Can Claude read its answers aloud?","acceptedAnswer":{"@type":"Answer","text":"Claude can read replies aloud in its web and phone apps (Voice Mode), but not in the Mac desktop app. To listen on your Mac's desktop you need a separate tool. Sorrel does it by reading your clipboard — copy the answer, press a hotkey, and it speaks."}},
+    {"@type":"Question","name":"Why doesn't the built-in Mac read-aloud work in the ChatGPT or Claude apps?","acceptedAnswer":{"@type":"Answer","text":"Those desktop apps handle text in a way where macOS Speak Selection and text selection often don't work. Sorrel reads whatever you copy instead, so it works in those apps."}},
+    {"@type":"Question","name":"How do I listen to AI answers privately?","acceptedAnswer":{"@type":"Answer","text":"Use a tool that speaks on-device. Sorrel generates audio with your Mac's own voices, so the text never leaves your computer — unlike cloud read-aloud features that send it to a server."}},
+    {"@type":"Question","name":"Does it cost anything?","acceptedAnswer":{"@type":"Answer","text":"Sorrel is free for 14 days, then $9.99 once — no subscription. The macOS built-in Speak Selection is free but selection-based, so it struggles inside the AI apps."}}]}
+  </script>
+</head>
+<body>
+  <a class="skip" href="#options">Skip to content</a>
+  <header class="phead">
+    <div class="wrap">
+      <nav>
+        <a class="brand" href="/"><span class="ico" aria-hidden="true"><span><i></i><i></i><i></i><i></i><i></i></span></span>Sorrel</a>
+        <div class="nav-links">
+          <a class="hidem" href="/compare/">Compare</a>
+          <a class="hidem" href="/#faq">FAQ</a>
+          <a class="btn btn-ghost" style="padding:9px 16px" href="https://github.com/CodeMonkeyDonkey/sorrel-app/releases/latest/download/Sorrel.dmg">Download</a>
+        </div>
+      </nav>
+      <p class="crumbs"><a href="/">Home</a> &nbsp;›&nbsp; <a href="/compare/">Compare</a> &nbsp;›&nbsp; Read ChatGPT &amp; Claude answers aloud</p>
+      <div class="inner">
+        <span class="eyebrow">● How-to &nbsp;·&nbsp; updated 2026</span>
+        <h1>Listen to <span class="grad">ChatGPT &amp; Claude</span> answers on your Mac</h1>
+        <p class="lede">Long AI replies are easier to take in by ear. Here's how to listen — including inside the desktop apps, where the usual tricks fail.</p>
+        <div class="verdict">
+          <div class="vk">The short version</div>
+          <p>ChatGPT can read its replies aloud, but only inside ChatGPT and in the cloud. Claude reads replies aloud too — but only in its web and phone apps (Voice Mode), not the Mac desktop app. And the free Mac built-in (Speak Selection) often won't work inside the Claude and ChatGPT desktop apps, because it needs to select the text first.</p>
+          <p>The reliable way is a tool that reads your <strong>clipboard</strong>: copy the answer, press a hotkey, and it speaks — in any app. <strong>Sorrel</strong> does exactly that, strips the markdown and code so it sounds clean, and — with your Mac's built-in voices — keeps everything on your Mac.</p>
+        </div>
+        <div class="cta" style="margin-top:24px;display:flex;gap:13px;flex-wrap:wrap;">
+          <a class="btn btn-primary" href="https://github.com/CodeMonkeyDonkey/sorrel-app/releases/latest/download/Sorrel.dmg">↓&nbsp; Download for Mac</a>
+          <a class="btn btn-ghost" href="#steps">Jump to the steps</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" id="options">
+      <div class="wrap">
+        <div class="kicker">Your options at a glance</div>
+        <h2>What actually works</h2>
+        <p class="sub">Four ways to listen to AI answers on a Mac — and where each one falls short.</p>
+        <div class="ctable-wrap" tabindex="0" role="region" aria-label="Ways to listen to AI answers on a Mac, compared">
+          <table class="ctable">
+            <thead><tr><th scope="col">Method</th><th scope="col">Works inside the Claude / ChatGPT apps?</th><th scope="col">Private?</th><th scope="col">Cost</th></tr></thead>
+            <tbody>
+              <tr><th scope="row" class="feat">ChatGPT's read-aloud button</th><td><span class="no">Only inside ChatGPT</span></td><td><span class="no">Cloud</span></td><td>Free with ChatGPT</td></tr>
+              <tr><th scope="row" class="feat">macOS Speak Selection (⌥+Esc)</th><td><span class="no">Often no — selection breaks</span></td><td><span class="yes">On-device</span></td><td>Free</td></tr>
+              <tr><th scope="row" class="feat">Browser extensions</th><td><span class="no">Browser only, not the apps</span></td><td>Varies — cloud or local</td><td>Varies</td></tr>
+              <tr style="background:rgba(181,101,31,.06);"><th scope="row" class="feat" style="color:var(--accent);">Sorrel (clipboard hotkey)</th><td><span class="yes"><span class="mark" aria-hidden="true">✓</span>Yes — anywhere you can copy</span></td><td><span class="yes">On-device by default</span></td><td>$9.99 once</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="font-size:13.5px;color:var(--muted);margin-top:12px;">Accurate as of 2026 — app features change; check the current versions.</p>
+      </div>
+    </section>
+
+    <section class="section alt" id="steps">
+      <div class="wrap">
+        <div class="kicker">The reliable way</div>
+        <h2>Listen to any answer in 3 steps</h2>
+        <div class="cards">
+          <div class="card"><div class="cico" aria-hidden="true">1</div><h3>Copy the answer</h3><p>In the Claude or ChatGPT app — or your browser — select the reply and press <b>⌘C</b>. Because Sorrel reads the clipboard, this works even where selection is awkward.</p></div>
+          <div class="card"><div class="cico" aria-hidden="true">2</div><h3>Press ⌥⌘V</h3><p>Sorrel strips the markdown, code and links, then reads the answer aloud in your Mac's own voice — no app to switch to.</p></div>
+          <div class="card"><div class="cico" aria-hidden="true">3</div><h3>Listen, privately</h3><p>Playback happens on your Mac with its built-in voices. No account, no reading text uploaded to Sorrel. Tune the voice and speed in Settings whenever you like.</p></div>
+        </div>
+        <div class="callout"><b>Why this beats the built-in options:</b> it works the same in every app (not just ChatGPT), it cleans up the formatting so a long answer sounds like a person, and with your Mac's voices, your text never leaves it.</div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="wrap narrow">
+        <div class="kicker">FAQ</div>
+        <h2>Common questions</h2>
+        <details><summary>Can ChatGPT read its answers aloud?</summary><p>Yes — ChatGPT has a read-aloud button for its replies. The catch: it only works inside ChatGPT, in the cloud. It won't read a Claude answer, another app, or anything else on your Mac.</p></details>
+        <details><summary>Can Claude read its answers aloud?</summary><p>Claude can read replies aloud in its web and phone apps (Voice Mode), but not in the Mac desktop app. To listen on your Mac's desktop you need a separate tool. Sorrel does it by reading your clipboard — copy the answer, press a hotkey, and it speaks.</p></details>
+        <details><summary>Why doesn't the built-in Mac read-aloud work in the ChatGPT or Claude apps?</summary><p>Those desktop apps handle text in a way where macOS Speak Selection and text selection often don't work. Sorrel reads whatever you copy instead, so it works in those apps.</p></details>
+        <details><summary>How do I listen to AI answers privately?</summary><p>Use a tool that speaks on-device. Sorrel generates audio with your Mac's own voices, so the text never leaves your computer — unlike cloud read-aloud features that send it to a server.</p></details>
+        <details><summary>Does it cost anything?</summary><p>Sorrel is free for 14 days, then $9.99 once — no subscription. The macOS built-in Speak Selection is free but selection-based, so it struggles inside the AI apps.</p></details>
+      </div>
+    </section>
+
+    <section class="ctaband">
+      <div class="wrap">
+        <h2>Hear your AI answers, clean.</h2>
+        <p>Free for 14 days. Then $9.99 once. No subscription.</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="https://github.com/CodeMonkeyDonkey/sorrel-app/releases/latest/download/Sorrel.dmg">↓&nbsp; Download for Mac</a>
+          <a class="btn btn-ghost" href="/#how">See how it works</a>
+        </div>
+        <p class="fine">macOS 14 (Sonoma) or later · signed &amp; notarized by Apple</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="flinks">
+        <a href="/">Home</a>
+        <a href="/compare/">Compare</a>
+        <a href="https://github.com/CodeMonkeyDonkey/sorrel-app/releases/latest/download/Sorrel.dmg">Download</a>
+        <a href="/terms/">Terms</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="mailto:me@julyskyfly.com">Support</a>
+      </div>
+      © 2026 Sorrel · Built as a solo-dev project · macOS 14+
+      <div style="margin-top:10px;font-size:12px;line-height:1.55;opacity:.8;max-width:74ch;margin-left:auto;margin-right:auto;">ChatGPT, Claude, and other product names are trademarks of their respective owners. Sorrel is independent software and is not affiliated with or endorsed by them.</div>
+    </div>
+  </footer>
+</body></html>
