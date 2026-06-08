@@ -40,7 +40,7 @@
 
   <main><div class="wrap">
     <h1>Privacy Notice</h1>
-    <p class="updated">Last updated: 4 June 2026</p>
+    <p class="updated">Last updated: 8 June 2026</p>
 
     <p>Sorrel is operated by an independent developer based in Canada, who is the party responsible for (the controller of) the limited personal data described below. The person accountable for privacy can be reached at <a href="mailto:me@julyskyfly.com">me@julyskyfly.com</a>.</p>
 
@@ -52,6 +52,7 @@
       <li><strong>API keys stay on your device.</strong> If you enable a cloud voice provider, your key is stored in the macOS Keychain, scoped to this device only.</li>
       <li><strong>History is local.</strong> Your recent pastes are stored on-device. Nothing syncs to iCloud or to our servers — we have no servers that receive your text.</li>
       <li><strong>Purchases and license delivery use online services.</strong> Gumroad handles checkout. Sorrel's license service uses your purchase details to issue or recover a license key, but it does not receive your pasted text, history, API keys, or playback content.</li>
+      <li><strong>Software updates use standard update checks.</strong> Sorrel checks for app updates through Sparkle, using an appcast hosted at sorrelreader.com and update downloads from GitHub Releases. Update checks do not include your pasted text, history, API keys, or playback content.</li>
     </ul>
 
     <h2>Where your text goes</h2>
@@ -73,9 +74,13 @@
     </ul>
 
     <h2>Purchases and license activation</h2>
-    <p>Sorrel is local-first, not network-free. You need an internet connection to download Sorrel, buy a license, receive or recover a license key, and use any optional cloud voice provider. After a valid license key is stored, Sorrel verifies that signed key locally on your Mac; it does not need an ongoing license-server check to keep working.</p>
+    <p>Sorrel is local-first, not network-free. You need an internet connection to download Sorrel, buy a license, receive or recover a license key, check for software updates, and use any optional cloud voice provider. After a valid license key is stored, Sorrel verifies that signed key locally on your Mac; it does not need an ongoing license-server check to keep working.</p>
     <p>For purchases and license delivery, Gumroad handles payment and sends Sorrel the purchase details needed to fulfill your license. Sorrel's license delivery service may process your buyer email address, Gumroad sale/order identifier, product identifier, assigned license key, delivery status, and timestamps. If Sorrel adds an in-app activation or recovery flow, the app may contact the license service to claim or retrieve the same license key using purchase or license details you provide. That activation flow is only for licensing; it is not used to send your reading text to Sorrel.</p>
     <p>License emails are sent through a transactional email provider. Those providers process the email address and message content needed to deliver the license key under their own terms and privacy policies.</p>
+
+    <h2>Software updates</h2>
+    <p>Sorrel uses Sparkle to check for software updates. Automatic update checks fetch an appcast from <a href="https://sorrelreader.com/appcast.xml">https://sorrelreader.com/appcast.xml</a>; if you choose to install an update, Sparkle downloads the notarized DMG from Sorrel's public GitHub Releases. These requests include normal web request metadata such as IP address, user agent, date/time, and requested URL as processed by Cloudflare, GitHub, and related hosting infrastructure.</p>
+    <p>Update checks are only for app version delivery. They do not send Sorrel your pasted text, reading history, API keys, license key, transcript content, playback events, or Shortcuts run logs.</p>
 
     <h2>Shortcuts and App Intents</h2>
     <p>Sorrel exposes two App Intents you can wire into Shortcuts: <strong>Speak Clipboard</strong> and <strong>Speak Text</strong>. Both run on your Mac. Neither watches the clipboard in the background, and neither sends anything over the network when you use an Apple voice. When a Shortcut or App Intent fires, Sorrel reads the supplied text immediately without foregrounding the app. We do not log when Shortcuts run or succeed.</p>

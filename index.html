@@ -2,18 +2,18 @@
 <html lang="en"><head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sorrel — Hear copied text in your Mac's System Voice</title>
-  <meta name="description" content="Copy text anywhere on Mac, press Option-Command-V, and Sorrel strips the clutter before reading it aloud in your Mac's own voice. Free for 14 days, then $9.99 once — no subscription, private by default." />
+  <title>Sorrel — Private Mac read-aloud for long, messy text</title>
+  <meta name="description" content="Paste long copied text into Sorrel, and it cleans the clutter before reading it aloud in your Mac's own voice. Free for 14 days, then $9.99 once — no subscription, private by default." />
   <meta name="color-scheme" content="light" />
   <link rel="canonical" href="https://sorrelreader.com/" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://sorrelreader.com/" />
-  <meta property="og:title" content="Sorrel — Hear copied text in your Mac's System Voice" />
-  <meta property="og:description" content="Copy any text on Mac, press ⌥⌘V, and Sorrel reads it aloud — clutter stripped. Free for 14 days, then $9.99 once, no subscription." />
+  <meta property="og:title" content="Sorrel — Private Mac read-aloud for long, messy text" />
+  <meta property="og:description" content="A private Mac reader for long articles, emails, drafts, selectable PDF text, and AI answers. Copy, paste, listen — clutter stripped." />
   <meta property="og:image" content="https://sorrelreader.com/og-image.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Sorrel — Hear copied text in your Mac's System Voice" />
-  <meta name="twitter:description" content="Press ⌥⌘V and Sorrel reads any copied text aloud — clutter stripped. $9.99 once, no subscription, private by default." />
+  <meta name="twitter:title" content="Sorrel — Private Mac read-aloud for long, messy text" />
+  <meta name="twitter:description" content="Paste long copied text into Sorrel and hear the cleaned-up version in your Mac's own voice. $9.99 once, no subscription." />
   <meta name="twitter:image" content="https://sorrelreader.com/og-image.png" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23b5651f'/%3E%3Cg fill='none' stroke='white' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M11 13v6'/%3E%3Cpath d='M16 9v14'/%3E%3Cpath d='M21 12v8'/%3E%3C/g%3E%3C/svg%3E" />
 <style>
@@ -64,7 +64,7 @@
   .app-body{padding:22px;}
   .src{font-family:var(--mono);font-size:12.5px;color:#a99f8d;background:var(--surface-2);border:1px solid var(--border);border-radius:11px;padding:13px 15px;line-height:1.55;}
   .flowrow{display:flex;align-items:center;justify-content:center;gap:10px;margin:15px 0;}
-  .flowrow kbd{font-family:var(--mono);font-size:13px;font-weight:700;background:#fff;border:1px solid var(--border);border-bottom-width:2px;border-radius:7px;padding:3px 9px;}
+  .flowrow kbd,.flowrow .pill{font-family:var(--mono);font-size:13px;font-weight:700;background:#fff;border:1px solid var(--border);border-bottom-width:2px;border-radius:7px;padding:3px 9px;}
   .flowrow .arr{color:var(--accent);font-size:18px;}
   .clean{background:#fff;border:1.5px solid color-mix(in srgb,var(--accent) 32%,var(--border));border-radius:13px;padding:17px;box-shadow:0 8px 22px rgba(181,101,31,.10);}
   .clean p{font-size:15.5px;color:var(--ink);margin-bottom:15px;}
@@ -86,6 +86,8 @@
   .card .cico{width:40px;height:40px;border-radius:11px;background:rgba(181,101,31,.10);display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:15px;}
   .card h3{font-size:17px;letter-spacing:-.01em;margin-bottom:7px;}
   .card p{font-size:14.5px;color:var(--muted);}
+  .usecase-head{margin-top:58px;}
+  .usecase-head h2{max-width:22ch;}
 
   .two{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
   .priv ol{list-style:none;counter-reset:s;}
@@ -119,6 +121,8 @@
       <nav>
         <a class="brand" href="/"><span class="ico"><span><i></i><i></i><i></i><i></i><i></i></span></span>Sorrel</a>
         <div class="nav-links">
+          <a class="hidem" href="/for-reading/">Reading</a>
+          <a class="hidem" href="/for-work/">Work</a>
           <a class="hidem" href="/compare/">Compare</a>
           <a class="hidem" href="/privacy/">Privacy</a>
           <a class="hidem" href="#faq">FAQ</a>
@@ -128,19 +132,20 @@
       <div class="hero-grid">
         <div>
           <span class="eyebrow">● For macOS &nbsp;·&nbsp; signed &amp; notarized</span>
-          <h1>Hear anything on your Mac,<br>in a <span class="grad">clean voice.</span></h1>
-          <p class="lede">Copy any text, press <kbd>⌥⌘V</kbd>, and Sorrel strips the clutter and reads it aloud — in your Mac's own voice.</p>
+          <h1>Let your Mac read <br>the <span class="grad">long stuff.</span></h1>
+          <p class="lede">Copy an article, email, selectable PDF text, draft, or AI answer into Sorrel. Click Replace &amp; Play, and hear the cleaned-up version in your Mac's own voice.</p>
           <div class="cta">
             <a class="btn btn-primary" href="https://github.com/CodeMonkeyDonkey/sorrel-app/releases/latest/download/Sorrel.dmg">↓&nbsp; Download for Mac</a>
+            <a class="btn btn-ghost" href="https://skyflyer1.gumroad.com/l/fnpieg">Buy license</a>
             <a class="btn btn-ghost" href="#how">See how it works</a>
           </div>
-          <div class="trust"><span class="ti"><b>✓</b> 14-day free trial</span><span class="ti"><b>✓</b> $9.99 once, no subscription</span><span class="ti"><b>✓</b> Private by default</span></div>
+          <div class="trust"><span class="ti"><b>✓</b> 14-day free trial</span><span class="ti"><b>✓</b> $9.99 once, no subscription</span><span class="ti"><b>✓</b> System Voice playback stays on your Mac</span></div>
         </div>
         <div class="app">
           <div class="titlebar"><span class="tl r"></span><span class="tl y"></span><span class="tl g"></span><span class="t">Sorrel</span></div>
           <div class="app-body">
             <div class="src">## Heading<br><br>Some **copied** text with [a link](url), footnotes¹ and `code` clutter…</div>
-            <div class="flowrow"><kbd>⌥</kbd><kbd>⌘</kbd><kbd>V</kbd><span class="arr">↓</span></div>
+            <div class="flowrow"><span class="pill">Replace &amp; Play</span><span class="arr">↓</span></div>
             <div class="clean">
               <p>Some copied text with a link, footnotes and code clutter…</p>
               <div class="player">
@@ -159,13 +164,25 @@
     <section class="section">
       <div class="wrap">
         <div class="kicker">How it works</div>
-        <h2>Copy. Hotkey. Listen.</h2>
-        <p class="sub">No app to switch to, no document to open. It works anywhere you can copy text.</p>
+        <h2>Copy. Paste. Listen.</h2>
+        <p class="sub">Use Sorrel anywhere you can copy text: articles, selectable PDFs, email, docs, AI answers, and your own drafts. The optional hotkey is there when you want a faster path.</p>
         <div class="cards">
-          <div class="card"><div class="cico">⌘</div><h3>Copy anywhere</h3><p>Browser, PDF, email, ChatGPT, docs — Sorrel reads your clipboard only when you ask.</p></div>
-          <div class="card"><div class="cico">⌥</div><h3>One global hotkey</h3><p>Set your hotkey once in Settings, then press it from any app — Sorrel cleans the text and starts playback.</p></div>
-          <div class="card"><div class="cico">🔊</div><h3>Your Mac's voice</h3><p>Uses your selected System Voice — natural, on-device, and no subscription.</p></div>
-          <div class="card"><div class="cico">✦</div><h3>Skips the noise</h3><p>Strips markdown, links, code fences, citations and footnotes before a word is spoken.</p></div>
+          <div class="card"><div class="cico">01</div><h3>Copy long text</h3><p>Articles, emails, docs, selectable PDF text, AI answers, or your own drafts.</p></div>
+          <div class="card"><div class="cico">02</div><h3>Replace &amp; Play</h3><p>Paste into Sorrel or replace the current text and start playback from the main button.</p></div>
+          <div class="card"><div class="cico">03</div><h3>Skip the clutter</h3><p>Markdown, links, code fences, citations, and footnotes stay out of the audio.</p></div>
+          <div class="card"><div class="cico">04</div><h3>Your Mac's voice</h3><p>System Voice playback happens on your Mac, with optional cloud voices only if you choose them.</p></div>
+        </div>
+
+        <div class="usecase-head">
+          <div class="kicker">Why people use it</div>
+          <h2>Built for the text you keep putting off.</h2>
+          <p class="sub">Long readings, dense docs, and overgrown AI replies are easier when you can listen. Sorrel helps when your eyes are tired, your attention keeps slipping, or you want to proofread by ear.</p>
+        </div>
+        <div class="cards">
+          <div class="card"><div class="cico">A</div><h3>Tired eyes</h3><p>Turn screen reading into listening without sending System Voice playback text to a cloud service.</p></div>
+          <div class="card"><div class="cico">B</div><h3>Study and research</h3><p>Make copied readings, notes, and selectable PDF text easier to get through.</p></div>
+          <div class="card"><div class="cico">C</div><h3>Proofreading</h3><p>Hear awkward wording, repeated words, and missing words that visual scanning can skip.</p></div>
+          <div class="card"><div class="cico">D</div><h3>AI answers</h3><p>Listen to long Claude or ChatGPT replies after Sorrel removes markdown and link clutter.</p></div>
         </div>
       </div>
     </section>
@@ -200,13 +217,13 @@
       <div class="wrap narrow" id="faq">
         <div class="kicker">FAQ</div>
         <h2>Good questions.</h2>
-        <details><summary>Does Sorrel monitor my clipboard?</summary><p>No. It reads the clipboard only when you press the hotkey, paste, or invoke a command — never in the background.</p></details>
+        <details><summary>Does Sorrel monitor my clipboard?</summary><p>No. It reads the clipboard only when you paste, click Replace &amp; Play, press the optional hotkey, or invoke a command — never in the background.</p></details>
         <details><summary>Does my text leave my Mac?</summary><p>Not for System Voice playback — everything stays on-device. Only if you opt into a cloud voice does the filtered text get sent to that provider over HTTPS, using your own key.</p></details>
         <details><summary>Do I need to be online?</summary><p>You need internet to download Sorrel, buy a license, receive or recover a key, or use optional cloud voices. After activation, System Voice playback and license verification work offline.</p></details>
         <details><summary>Do I need an API key?</summary><p>No. API keys are only for the optional advanced cloud voices. The built-in System Voices need nothing.</p></details>
         <details><summary>How do I use a Siri voice?</summary><p>Open System Settings &gt; Accessibility &gt; Read &amp; Speak (Spoken Content on older macOS), open System Voice, choose any voice named Siri, and wait for it to finish downloading. If Siri is not listed, click the ⓘ next to System Voice to download one first.</p></details>
         <details><summary>What does it cost?</summary><p>Free for 14 days, then $9.99 once — a one-time purchase, no subscription, yours to keep on every Mac you own.</p></details>
-        <details><summary>What do I need to run it?</summary><p>A Mac running macOS 14 (Sonoma) or later. Sorrel is signed and notarized by Apple, so it opens cleanly.</p></details>
+        <details><summary>What do I need to run it?</summary><p>A Mac running macOS 14 (Sonoma) or later. Sorrel ships as a signed and notarized macOS build, so it opens cleanly.</p></details>
       </div>
     </section>
   </main>
@@ -214,6 +231,8 @@
   <footer>
     <div class="wrap">
       <div class="flinks">
+        <a href="/for-reading/">Reading</a>
+        <a href="/for-work/">Work</a>
         <a href="/compare/">Compare</a>
         <a href="https://github.com/CodeMonkeyDonkey/sorrel-app/releases/latest/download/Sorrel.dmg">Download</a>
         <a href="/terms/">Terms</a>
