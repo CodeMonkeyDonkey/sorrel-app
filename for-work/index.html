@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sorrel for Work — Hear AI answers and drafts on your Mac</title>
+  <meta name="description" content="Use Sorrel to listen to long Claude or ChatGPT answers, specs, emails, notes, and drafts on your Mac. Paste copied text, click Replace & Play, and hear the cleaned-up version." />
+  <meta name="color-scheme" content="light" />
+  <link rel="canonical" href="https://sorrelreader.com/for-work/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://sorrelreader.com/for-work/" />
+  <meta property="og:title" content="Sorrel for Work — Hear AI answers and drafts on your Mac" />
+  <meta property="og:description" content="Copy long AI answers, specs, emails, notes, or drafts into Sorrel and hear the cleaned-up version in your Mac's own voice." />
+  <meta property="og:image" content="https://sorrelreader.com/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Sorrel for Work — Hear AI answers and drafts on your Mac" />
+  <meta name="twitter:description" content="Paste long copied work text into Sorrel and listen to the clean version in your Mac's own voice." />
+  <meta name="twitter:image" content="https://sorrelreader.com/og-image.png" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23b5651f'/%3E%3Cg fill='none' stroke='white' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M11 13v6'/%3E%3Cpath d='M16 9v14'/%3E%3Cpath d='M21 12v8'/%3E%3C/g%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="/assets/compare.css" />
+  <style>
+    .hero-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:48px;align-items:center;}
+    .phead .inner{max-width:none;}
+    .hero-copy{max-width:720px;}
+    .cta{display:flex;gap:13px;align-items:center;flex-wrap:wrap;margin-top:26px;}
+    .trust{margin-top:18px;font-size:14px;color:var(--muted);display:flex;gap:9px 18px;flex-wrap:wrap;}
+    .trust b{color:var(--accent);}
+    .work-demo{background:var(--surface);border:1px solid var(--border);border-radius:18px;box-shadow:0 2px 6px rgba(31,24,15,.05),0 34px 70px -24px rgba(31,24,15,.28);overflow:hidden;}
+    .work-top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 16px;background:linear-gradient(180deg,#fff,#fbf8f2);border-bottom:1px solid var(--border);}
+    .work-top b{font-size:13px;color:var(--muted);}
+    .dots{display:flex;gap:8px;}
+    .dots i{width:12px;height:12px;border-radius:50%;background:var(--border);display:block;}
+    .dots i:nth-child(1){background:#ff5f57}.dots i:nth-child(2){background:#febc2e}.dots i:nth-child(3){background:#28c840}
+    .work-body{padding:24px;}
+    .source{font-family:var(--mono);font-size:12.5px;line-height:1.6;color:#a99f8d;background:var(--surface-2);border:1px solid var(--border);border-radius:12px;padding:14px 15px;}
+    .button-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:16px 0 0;}
+    .pill{font-family:var(--mono);font-size:13px;font-weight:700;background:#fff;border:1px solid var(--border);border-bottom-width:2px;border-radius:7px;padding:4px 10px;}
+    .clean{margin-top:16px;background:#fff;border:1.5px solid color-mix(in srgb,var(--accent) 32%,var(--border));border-radius:13px;padding:17px;box-shadow:0 8px 22px rgba(181,101,31,.10);}
+    .clean p{font-size:15.5px;color:var(--ink);margin-bottom:14px;}
+    .timeline{display:grid;gap:8px;}
+    .timeline span{height:8px;border-radius:999px;background:var(--surface-2);display:block;overflow:hidden;}
+    .timeline span i{height:100%;background:linear-gradient(90deg,var(--accent-2),var(--accent));display:block;border-radius:999px;}
+    .cards.four{grid-template-columns:repeat(4,1fr);}
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:36px;}
+    .step{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:24px;}
+    .step b{display:inline-flex;width:30px;height:30px;border-radius:50%;align-items:center;justify-content:center;background:rgba(181,101,31,.12);color:var(--accent);margin-bottom:14px;}
+    .step h3{font-size:17px;letter-spacing:-.01em;margin-bottom:7px;}
+    .step p{font-size:14.5px;color:var(--muted);}
+    @media (max-width:900px){.hero-grid{grid-template-columns:1fr;}.cards.four,.steps{grid-template-columns:1fr;}}
+    @media (max-width:560px){.cta{align-items:stretch;flex-direction:column;}.btn{justify-content:center;}}
+  </style>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://sorrelreader.com/"},
+    {"@type":"ListItem","position":2,"name":"For Work","item":"https://sorrelreader.com/for-work/"}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Sorrel","applicationCategory":"UtilitiesApplication","operatingSystem":"macOS 14.0 or later","offers":{"@type":"Offer","price":"9.99","priceCurrency":"USD","url":"https://sorrelreader.com/download/","description":"One-time purchase, no subscription. 14-day free trial."},"description":"A private Mac reader for long copied AI answers, specs, emails, notes, and drafts."}
+  </script>
+</head>
+<body>
+  <a class="skip" href="#workflow">Skip to content</a>
+  <header class="phead">
+    <div class="wrap">
+      <nav>
+        <a class="brand" href="/"><span class="ico" aria-hidden="true"><span><i></i><i></i><i></i><i></i><i></i></span></span>Sorrel</a>
+        <div class="nav-links">
+          <a class="hidem" href="/for-reading/">Reading</a>
+          <a class="hidem" href="/compare/">Compare</a>
+          <a class="hidem" href="/privacy/">Privacy</a>
+          <a class="btn btn-ghost" style="padding:9px 16px" href="/download/">Download</a>
+        </div>
+      </nav>
+      <p class="crumbs"><a href="/">Home</a> &nbsp;›&nbsp; For Work</p>
+      <div class="inner">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <span class="eyebrow">For long copied work text</span>
+            <h1>Turn long AI answers and drafts into clean audio.</h1>
+            <p class="lede">Copy a Claude or ChatGPT answer, spec, email, note, or draft into Sorrel. Click Replace &amp; Play, and listen while markdown, links, code fences, and citations stay out of the way.</p>
+            <div class="cta">
+              <a class="btn btn-primary" href="/download/">Download for Mac</a>
+              <a class="badge-mas" href="https://apps.apple.com/app/id6779471802" aria-label="Download Sorrel on the Mac App Store" style="display:inline-flex;align-items:center"><img src="/mac-app-store-badge.svg" alt="Download on the Mac App Store" style="display:block;height:50px;width:auto" /></a>
+              <a class="btn btn-ghost" href="https://skyflyer1.gumroad.com/l/fnpieg?offer_code=WORK">Buy license</a>
+            </div>
+            <div class="trust"><span><b>14-day trial</b></span><span><b>$9.99 once</b></span><span><b>macOS 14+</b></span><span>Optional hotkey for faster playback</span></div>
+          </div>
+          <div class="work-demo" aria-label="Sorrel removes markup from copied work text before reading it">
+            <div class="work-top"><div class="dots" aria-hidden="true"><i></i><i></i><i></i></div><b>Sorrel</b></div>
+            <div class="work-body">
+              <div class="source">### Draft summary<br><br>- Main risk: `edge-case handling`<br>- See [spec](url)<br>- Next: rewrite with fewer caveats.</div>
+              <div class="button-row"><span class="pill">Paste</span><span class="pill">Replace &amp; Play</span></div>
+              <div class="clean">
+                <p>Main risk: edge-case handling. Next: rewrite with fewer caveats.</p>
+                <div class="timeline" aria-hidden="true"><span><i style="width:72%"></i></span><span><i style="width:44%"></i></span><span><i style="width:61%"></i></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="workflow">
+    <section class="section">
+      <div class="wrap">
+        <div class="kicker">Workflow</div>
+        <h2>Useful when the output is longer than your attention span.</h2>
+        <p class="sub">Sorrel is for copied text you need to understand, review, or proofread, without opening a heavy reading platform.</p>
+        <div class="cards four">
+          <div class="card"><div class="cico">01</div><h3>AI answers</h3><p>Listen to long Claude or ChatGPT replies after markdown and links are stripped.</p></div>
+          <div class="card"><div class="cico">02</div><h3>Specs and notes</h3><p>Turn dense plans, PRDs, issue summaries, or meeting notes into audio.</p></div>
+          <div class="card"><div class="cico">03</div><h3>Email and docs</h3><p>Paste copied client emails, policies, proposals, and internal docs.</p></div>
+          <div class="card"><div class="cico">04</div><h3>Draft review</h3><p>Hear what you wrote so repeated words and awkward phrasing stand out.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="wrap">
+        <div class="kicker">How it fits</div>
+        <h2>Copy, clean, listen.</h2>
+        <div class="steps">
+          <div class="step"><b>1</b><h3>Copy text from your work app</h3><p>Use text from browsers, chat apps, docs, terminals, or PDFs when the text is selectable.</p></div>
+          <div class="step"><b>2</b><h3>Paste or Replace &amp; Play</h3><p>Use the visible button, or set the optional hotkey if that fits your workflow.</p></div>
+          <div class="step"><b>3</b><h3>Listen in your Mac's voice</h3><p>System Voice playback happens on your Mac. Cloud voices are optional.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="kicker">Fit</div>
+        <h2>Small utility, clear boundaries.</h2>
+        <div class="picks">
+          <div class="pick sorrel">
+            <h3>Sorrel is a fit when</h3>
+            <ul>
+              <li>You can copy the text you want to hear.</li>
+              <li>You want cleanup before the text is spoken.</li>
+              <li>You prefer a pay-once Mac utility.</li>
+              <li>You want local System Voice playback by default.</li>
+            </ul>
+          </div>
+          <div class="pick neutral">
+            <h3>Use another tool when</h3>
+            <ul>
+              <li>You need team collaboration or shared libraries.</li>
+              <li>You need OCR for screenshots, images, or scanned PDFs.</li>
+              <li>You need production voiceover export.</li>
+              <li>You need a full screen-reader workflow.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="wrap narrow">
+        <div class="kicker">Privacy</div>
+        <h2>No app account. No subscription.</h2>
+        <div class="body">
+          <p>With System Voice playback, reading text stays on your Mac. Sorrel reads your clipboard only when you paste, click Replace &amp; Play, press the optional hotkey, or invoke a command.</p>
+          <p>Purchase and license delivery use Gumroad and Sorrel's license service. Optional cloud voices send filtered text to the provider you choose over HTTPS, using your own key.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap narrow">
+        <div class="kicker">FAQ</div>
+        <h2>Work questions.</h2>
+        <details><summary>Does Sorrel connect to Claude, ChatGPT, or my browser?</summary><p>No. You copy text yourself and paste it into Sorrel, or use Sorrel's optional command paths. Sorrel is not affiliated with Claude, ChatGPT, or browser vendors.</p></details>
+        <details><summary>Does Sorrel monitor my clipboard?</summary><p>No. It reads the clipboard only when you ask it to by pasting, clicking Replace &amp; Play, pressing the optional hotkey, or invoking a command.</p></details>
+        <details><summary>Can Sorrel read code?</summary><p>It can read copied code, but Sorrel is usually better for prose around code: explanations, specs, comments, issue summaries, and AI answers.</p></details>
+      </div>
+    </section>
+
+    <section class="ctaband">
+      <div class="wrap">
+        <h2>Listen to the next answer instead of rereading it.</h2>
+        <p>Free for 14 days. Then $9.99 once. No subscription.</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="/download/">Download for Mac</a>
+          <a class="btn btn-ghost" href="https://skyflyer1.gumroad.com/l/fnpieg?offer_code=WORK">Buy license</a>
+        </div>
+        <p class="fine">macOS 14 (Sonoma) or later · signed and notarized macOS build</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="flinks">
+        <a href="/">Home</a>
+        <a href="/for-reading/">Reading</a>
+        <a href="/compare/">Compare</a>
+        <a href="/download/">Download</a>
+        <a href="/terms/">Terms</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="mailto:me@julyskyfly.com">Support</a>
+      </div>
+      © 2026 Sorrel · Built as a solo-dev project · macOS 14+
+      <div style="margin-top:10px;font-size:12px;line-height:1.55;opacity:.8;max-width:74ch;margin-left:auto;margin-right:auto;">ChatGPT, Claude, and other product names are trademarks of their respective owners. Sorrel is independent software and is not affiliated with or endorsed by them.</div>
+    </div>
+  </footer>
+</body></html>
