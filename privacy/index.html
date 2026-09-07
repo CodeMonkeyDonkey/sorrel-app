@@ -3,7 +3,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Privacy Notice — Sorrel</title>
-  <meta name="description" content="How Sorrel handles your data: no in-app reading tracking, no account, no clipboard monitoring, and what happens if you opt into a cloud voice." />
+  <meta name="description" content="How Sorrel for iPhone and Mac handles local voices, text, history, audio caches, backups, App Store purchases, and optional direct-Mac cloud voices." />
   <meta name="color-scheme" content="light" />
   <link rel="canonical" href="https://sorrelreader.com/privacy/" />
   <meta name="robots" content="index,follow" />
@@ -40,32 +40,41 @@
 
   <main><div class="wrap">
     <h1>Privacy Notice</h1>
-    <p class="updated">Last updated: 17 June 2026</p>
+    <p class="updated">Last updated: 7 September 2026</p>
 
-    <p>Sorrel is operated by an independent developer based in Canada, who is the party responsible for (the controller of) the limited personal data described below. The person accountable for privacy can be reached at <a href="mailto:me@julyskyfly.com">me@julyskyfly.com</a>.</p>
+    <p>Sorrel is operated by an independent developer as a sole proprietor in Canada, who is responsible for the limited personal data described below under applicable Canadian privacy law, including the Personal Information Protection and Electronic Documents Act (PIPEDA) where it applies. The person accountable for privacy can be reached at <a href="mailto:me@julyskyfly.com">me@julyskyfly.com</a>.</p>
 
     <p class="lead">Sorrel is built privacy-first. The short version:</p>
     <ul>
       <li><strong>No in-app tracking.</strong> Sorrel does not collect reading activity, playback events, or user IDs in the app.</li>
-      <li><strong>No account required.</strong> You don't sign in to use Sorrel.</li>
-      <li><strong>No clipboard monitoring.</strong> Sorrel reads the clipboard only when you press the hotkey, tap Paste, or invoke an App Intent.</li>
-      <li><strong>API keys stay on your device.</strong> If you enable a cloud voice provider, your key is stored in the macOS Keychain, scoped to this device only.</li>
-      <li><strong>History is local.</strong> Your recent pastes are stored on-device. Nothing syncs to iCloud or to our servers — we have no servers that receive your text.</li>
-      <li><strong>Purchases and license delivery use online services.</strong> Gumroad handles direct-download checkout. Sorrel's license service uses your direct-purchase details to issue or recover a license key, but it does not receive your pasted text, history, API keys, or playback content. On the Mac App Store, Apple handles that purchase path.</li>
-      <li><strong>Software updates use standard update checks.</strong> Direct-download Sorrel checks for app updates through Sparkle, using an appcast hosted at sorrelreader.com and update downloads from GitHub Releases. The Mac App Store version uses App Store-managed updates. Update checks do not include your pasted text, history, API keys, or playback content.</li>
+      <li><strong>No Sorrel account required.</strong> You don't create a Sorrel account to use the app. App Store trials and purchases use your Apple Account.</li>
+      <li><strong>No clipboard monitoring.</strong> On iPhone, Sorrel receives clipboard text when you use Paste &amp; Play or paste into the editor, and shared text when you choose Read in Sorrel from the share sheet. On Mac, Sorrel reads the general clipboard when you click Paste or Paste &amp; Play, press the optional hotkey, or run Speak Clipboard. Speak Text receives text you explicitly provide, and Read Selection with Sorrel receives the current selection through a temporary Services pasteboard.</li>
+      <li><strong>API keys are direct-download only.</strong> The direct Mac edition can store an optional cloud-provider key in your Mac's Keychain and send it directly to that selected provider over HTTPS to authenticate a request. Sorrel does not send the key to its own servers or log it. The iPhone edition and Mac App Store 1.0.5 or later have no cloud providers or API-key surface. The legacy Mac App Store 1.0.4 exception is described below.</li>
+      <li><strong>History is local.</strong> When Keep history is enabled, readings are saved on your device. Sorrel does not sync them to iCloud or its servers. Ordinary system backups may include local app data, as described below.</li>
+      <li><strong>Purchases and license delivery use online services.</strong> Gumroad handles direct-download Mac checkout. Sorrel's license service uses your direct-purchase details to issue or recover a license key, but it does not receive your pasted text, history, API keys, or playback content. Apple handles the iPhone and Mac App Store purchase paths.</li>
+      <li><strong>Software updates use standard update checks.</strong> Direct-download Mac Sorrel checks for app updates through Sparkle, using an appcast hosted at sorrelreader.com and update downloads from GitHub Releases. The iPhone and Mac App Store editions use App Store-managed updates. Update checks do not include your pasted text, history, API keys, or playback content.</li>
     </ul>
+
+    <h2>Editions and version scope</h2>
+    <p><strong>Sorrel for iPhone</strong> offers Sorrel Voice local neural voices and Apple on-device voices, with no cloud voice providers or API-key settings. The Kokoro model and voice assets used by Sorrel Voice are bundled with the app; Sorrel does not download them on demand. On Mac, the <strong>direct-download edition</strong> offers optional bring-your-own-key cloud voices (Google Cloud TTS, Gemini, OpenAI, and ElevenLabs) in addition to local Apple/System Voice playback. The <strong>Mac App Store edition, version 1.0.5 or later,</strong> includes only local Apple/System Voice paths and has no API Keys settings or cloud provider endpoints.</p>
+    <p>The Mac App Store 1.0.4 build still exposes optional BYOK cloud voices. If you use that older build and opt into a cloud voice, its text handling is the same as the direct-download cloud path below. The cloud-free claim applies only to the 1.0.5-or-later Mac App Store update.</p>
 
     <h2>Where your text goes</h2>
     <ol>
-      <li>You paste text into the app, or send it via App Intents (Shortcuts).</li>
+      <li>On iPhone, you provide text by typing or pasting into the editor, using <strong>Paste &amp; Play</strong>, or choosing <strong>Read in Sorrel</strong> from another app's share sheet. On Mac, you can also use the optional hotkey, <strong>Speak Clipboard</strong> or <strong>Speak Text</strong> from Shortcuts, or <strong>Read Selection with Sorrel</strong> from macOS Services.</li>
       <li>The filter engine strips the patterns you have enabled (URLs, markdown, tables, and so on).</li>
-      <li>If you use an Apple voice or the macOS Spoken Content voice, the text is synthesized entirely on your Mac. Your reading text is not sent to Sorrel or to a cloud provider.</li>
-      <li>If you opt into a cloud provider (Google Cloud, Gemini, OpenAI, ElevenLabs), the filtered text is sent to that provider's server over HTTPS using the API key you supplied. Sorrel does not proxy or log these requests.</li>
-      <li>Synthesized audio is cached in your app's local caches directory so replay doesn't re-hit the provider. The cache is capped and purged automatically.</li>
+      <li>With Sorrel Voice or an Apple voice on iPhone, or an Apple voice or Mac System Voice on Mac, the filtered text is synthesized on your device. Reading text is not sent to Sorrel or a cloud voice provider for these local voice paths. These are the only voice paths in the iPhone edition and Mac App Store 1.0.5 or later.</li>
+      <li>In the <strong>direct-download Mac edition</strong> (or the legacy Mac App Store 1.0.4 build), if you opt into a cloud provider (Google Cloud, Gemini, OpenAI, ElevenLabs), the filtered text is sent to that provider's server over HTTPS using the API key you supplied. Sorrel does not proxy or log these requests.</li>
+      <li>Sorrel Voice, Mac System Voice, and cloud-provider audio can be cached in the app's local caches directory for replay. On iPhone, this also includes word-timing data for Sorrel Voice highlighting. The cache has a 200 MB limit and automatically trims older entries.</li>
     </ol>
 
+    <h2>Local storage and system backups</h2>
+    <p><strong>History and settings:</strong> With Keep history enabled, Sorrel saves the original and filtered reading text, date, selected voice/provider, and playback duration locally. Settings such as voice choice and filter rules are also stored locally. Turning history off stops new history entries; existing entries remain until you erase them.</p>
+    <p><strong>iPhone share handoff:</strong> Read in Sorrel writes the text you share, an identifier, and a timestamp to a local container used by Sorrel and its share extension. The pending share is removed when the app reads it, or replaced by a newer share. It can remain there while Sorrel is closed; it is not uploaded to a Sorrel server.</p>
+    <p><strong>System backups:</strong> Sorrel does not sync reading history between devices. Local app data, including saved readings and pending shared text, may be included in ordinary system backups, such as iCloud Backup, an iPhone backup on your computer, or a Mac backup, depending on your settings. These backups are managed separately through your system or backup provider; Sorrel does not receive them. Erasing history in Sorrel does not remove copies already held in backups.</p>
+
     <h2>Third-party cloud providers</h2>
-    <p>When you enable a cloud voice provider, <strong>that provider</strong> receives your filtered text and handles it under <strong>their</strong> own privacy policy. Sorrel has no agreement with those providers on your behalf, and is not responsible for how they handle your data or what their service produces. If privacy is your priority, use the built-in Apple and Spoken Content voices, which never send your text anywhere.</p>
+    <p><strong>Cloud voices are available only in the direct-download Mac edition</strong> (and remain present in the legacy Mac App Store 1.0.4 build until it is updated). When you enable one, <strong>that provider</strong> receives your filtered text and handles it under <strong>their</strong> own privacy policy. Sorrel has no agreement with those providers on your behalf, and is not responsible for how they handle your data or what their service produces. The local voice paths described above do not send reading text to a cloud voice provider.</p>
     <ul>
       <li>Google Cloud Text-to-Speech — <a href="https://cloud.google.com/text-to-speech" rel="noopener" target="_blank">cloud.google.com/text-to-speech</a></li>
       <li>Google Gemini — <a href="https://ai.google.dev/" rel="noopener" target="_blank">ai.google.dev</a></li>
@@ -74,30 +83,31 @@
     </ul>
 
     <h2>Purchases and license activation</h2>
-    <p>Sorrel is local-first, not network-free. You need an internet connection to download Sorrel, buy a license, receive or recover a direct-download license key, make or restore a Mac App Store purchase, check for software updates, and use any optional cloud voice provider. After a valid direct-download license key is stored, Sorrel verifies that signed key locally on your Mac; it does not need an ongoing license-server check to keep working.</p>
-    <p>For purchases and license delivery, Gumroad handles payment and sends Sorrel the purchase details needed to fulfill your license. Sorrel's license delivery service may process your buyer email address, Gumroad sale/order identifier, product identifier, assigned license key, delivery status, and timestamps. If Sorrel adds an in-app activation or recovery flow, the app may contact the license service to claim or retrieve the same license key using purchase or license details you provide. That activation flow is only for licensing; it is not used to send your reading text to Sorrel.</p>
-    <p>On the Mac App Store, Apple handles payment, purchase history, refunds, and Apple ID account records for that channel. Sorrel uses StoreKit purchase status to unlock the Mac App Store build. Direct-download/Gumroad purchases and Mac App Store purchases are separate and do not transfer between stores.</p>
+    <p>Sorrel is local-first, not network-free. You need an internet connection to download Sorrel, buy a license, receive or recover a direct-download license key, start or restore an App Store trial/purchase, check for software updates, and use any optional <strong>direct-download</strong> cloud voice provider. After a valid direct-download license key is stored, Sorrel verifies that signed key locally on your Mac; it does not need an ongoing license-server check to keep working.</p>
+    <p>For direct-download Mac purchases and license delivery, Gumroad handles payment and sends Sorrel the purchase details needed to fulfill your license. Sorrel's license delivery service may process your buyer email address, Gumroad sale/order identifier, product identifier, assigned license key, delivery status, and timestamps. If Sorrel adds an in-app activation or recovery flow, the app may contact the license service to claim or retrieve the same license key using purchase or license details you provide. That activation flow is only for licensing; it is not used to send your reading text to Sorrel.</p>
+    <p>For the iPhone and Mac App Store editions, Apple handles payment, purchase history, refunds, and Apple Account records. Sorrel's <strong>14-Day Trial</strong> is an explicit free StoreKit non-consumable on iPhone and in Mac App Store 1.0.5 or later. Its verified purchase date starts a one-time 14-day playback window shared by those editions under the same Apple Account. Restoring the trial uses the original dates; it does not restart the trial. The trial does not renew or automatically charge you. The full unlock uses the localized price shown by the App Store. After the trial, continued playback requires the separate one-time StoreKit full unlock. That universal purchase unlocks both the iPhone and Mac App Store editions on your compatible devices using the same Apple Account; <strong>Restore Purchases</strong> can recover an existing purchase. Sorrel uses verified StoreKit purchase status to determine access. Direct-download/Gumroad licenses are separate and do not unlock either App Store edition, and App Store purchases do not provide a direct-download license key.</p>
     <p>License emails are sent through a transactional email provider. Those providers process the email address and message content needed to deliver the license key under their own terms and privacy policies.</p>
 
     <h2>Software updates</h2>
-    <p>The direct-download version of Sorrel uses Sparkle to check for software updates. Automatic update checks fetch an appcast from <a href="https://sorrelreader.com/appcast.xml">https://sorrelreader.com/appcast.xml</a>; if you choose to install an update, Sparkle downloads the notarized DMG from Sorrel's public GitHub Releases. These requests include normal web request metadata such as IP address, user agent, date/time, and requested URL as processed by Cloudflare, GitHub, and related hosting infrastructure. The Mac App Store version uses Apple's App Store update mechanism instead of Sparkle.</p>
+    <p>The direct-download version of Sorrel uses Sparkle to check for software updates. Automatic update checks fetch an appcast from <a href="https://sorrelreader.com/appcast.xml">https://sorrelreader.com/appcast.xml</a>; if you choose to install an update, Sparkle downloads the notarized DMG from Sorrel's public GitHub Releases. These requests include normal web request metadata such as IP address, user agent, date/time, and requested URL as processed by Cloudflare, GitHub, and related hosting infrastructure. The iPhone and Mac App Store editions use Apple's App Store update mechanism instead of Sparkle.</p>
     <p>Update checks are only for app version delivery. They do not send Sorrel your pasted text, reading history, API keys, license key, transcript content, playback events, or Shortcuts run logs.</p>
 
-    <h2>Shortcuts and App Intents</h2>
-    <p>Sorrel exposes two App Intents you can wire into Shortcuts: <strong>Speak Clipboard</strong> and <strong>Speak Text</strong>. Both run on your Mac. Neither watches the clipboard in the background, and neither sends anything over the network when you use an Apple voice. When a Shortcut or App Intent fires, Sorrel reads the supplied text immediately without foregrounding the app. We do not log when Shortcuts run or succeed.</p>
+    <h2>Mac Shortcuts, App Intents, and Services</h2>
+    <p>Sorrel exposes two App Intents you can wire into Shortcuts: <strong>Speak Clipboard</strong> and <strong>Speak Text</strong>. Both run on your Mac. Neither watches the clipboard in the background, and neither sends anything over the network when you use an Apple voice. When a Shortcut or App Intent fires, Sorrel reads the supplied text immediately without foregrounding the app. Clipboard access happens only during a <strong>Speak Clipboard</strong> run. We do not log when Shortcuts run or succeed.</p>
+    <p>Sorrel also advertises a macOS Services item, <strong>Read Selection with Sorrel</strong>. When you choose it from another app's Services or Quick Actions menu, macOS passes the current selected text through a temporary pasteboard for that explicit action. Sorrel reads the selection immediately and does not replace or monitor your general clipboard.</p>
 
     <h2>Transcript view</h2>
-    <p>While playback is active, Sorrel shows the text broken into sentences and highlights the one being read. That view is rendered locally from the text you pasted — nothing about it is sent anywhere or written to disk beyond the normal history entry.</p>
+    <p>While playback is active, Sorrel renders the transcript, scroll position, and active-word or active-sentence highlight locally. Sorrel does not send transcript UI state or highlight activity to its servers. Reading text follows the selected voice path described above. On iPhone, Sorrel Voice word-timing data may be saved with cached audio to support highlighting on replay; history is stored separately when enabled.</p>
 
     <h2>Data you can delete at any time</h2>
     <ul>
-      <li><strong>History:</strong> Settings &gt; Privacy &gt; Purge history.</li>
-      <li><strong>API keys:</strong> Settings &gt; API Keys &gt; Remove (per provider).</li>
-      <li><strong>Audio cache:</strong> cycles automatically; to clear it manually, delete the Sorrel Caches directory.</li>
+      <li><strong>History:</strong> On iPhone, Settings &gt; Privacy &gt; Erase All History; on Mac, Settings &gt; Privacy &gt; Purge history. Turn off Keep history to stop new entries. Erasing history does not clear the current reading, cached audio, pending shared text, or system backups.</li>
+      <li><strong>API keys</strong> (direct-download edition only): Settings &gt; API Keys &gt; Remove (per provider).</li>
+      <li><strong>Audio cache:</strong> trims automatically under its 200 MB limit. On Mac, quit Sorrel before manually clearing <code>com.julyskyfly.sorrel.audio</code> from the app's Library/Caches directory (inside its sandbox container for sandboxed builds). iPhone Sorrel has no in-app cache-clear control.</li>
     </ul>
 
     <h2>Your data, retention &amp; your rights</h2>
-    <p>The personal data I hold off your device is limited to purchase and support records: your buyer email address, Gumroad sale/order details, assigned license key, delivery or activation status, StoreKit entitlement/support details if you contact me about a Mac App Store purchase, and support/refund correspondence if you contact me. I use it to issue, recover, support, and refund direct-download licenses (my basis is performing your purchase), support Mac App Store entitlement questions where possible, and keep the tax and accounting records required by law. I keep license records for as long as your license is active and as needed for support, refunds, abuse prevention, and required business records, then delete them when no longer needed. Gumroad, Apple, Cloudflare, the site's hosting, and the transactional email provider may store or process this limited data outside Canada, including in the United States, under their own policies. You can ask me to access, correct, or delete your Sorrel-held record anytime at <a href="mailto:me@julyskyfly.com">me@julyskyfly.com</a>. If you're in the EU or UK you may also complain to your local data-protection authority; in Canada, to the Office of the Privacy Commissioner.</p>
+    <p>The personal data I hold off your device is limited to purchase and support records: your buyer email address, Gumroad sale/order details, assigned license key, delivery or activation status, StoreKit entitlement/support details if you contact me about an iPhone or Mac App Store purchase, and support/refund correspondence if you contact me. I use it to issue, recover, support, and refund direct-download licenses (my basis is performing your purchase), support App Store entitlement questions where possible, and keep the tax and accounting records required by law. I keep license records for as long as your license is active and as needed for support, refunds, abuse prevention, and required business records, then delete them when no longer needed. Gumroad, Apple, Cloudflare, the site's hosting, and the transactional email provider may store or process this limited data outside Canada, including in the United States, under their own policies. You can ask me to access, correct, or delete your Sorrel-held record anytime at <a href="mailto:me@julyskyfly.com">me@julyskyfly.com</a>. If you're in the EU or UK you may also complain to your local data-protection authority; in Canada, to the Office of the Privacy Commissioner.</p>
 
     <h2>Contact</h2>
     <p>For any privacy question, email <a href="mailto:me@julyskyfly.com">me@julyskyfly.com</a>.</p>
@@ -105,6 +115,6 @@
 
   <footer><div class="wrap">
     <a href="/">Home</a><a href="/terms/">Terms</a><a href="/privacy/">Privacy</a><a href="mailto:me@julyskyfly.com">Support</a>
-    <div style="margin-top:10px;">© 2026 Sorrel · Built as a solo-dev project · macOS 14+</div>
+    <div style="margin-top:10px;">© 2026 Sorrel · Built as a solo-dev project · iPhone &amp; Mac</div>
   </div></footer>
 </body></html>
